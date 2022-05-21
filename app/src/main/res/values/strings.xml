@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">Test</string>
+    <string name="name_pr">Nazwa pracodawcy:</string>
+    <string name="web">Website:</string>
+    <string name="name_w">Oferty pracy:</string>
+    <string name="more">Więcej informacji:</string>
+    <string name="imagine">Imagine</string>
+    <string name="b_1">Dodaj ofertę:</string>
+    <string name="b_2">Zobacz oferty:</string>
+    <string name="work_1">Praca.</string>
+    <string name="work_2">PL</string>
+    <string name="nazwa">Wprowadź nazwę:</string>
+    <string name="website">Wprowadź website:</string>
+    <string name="oferty">Wprowadź oferty:</string>
+    <string name="inf">Wprowadź dodatkowe informację:</string>
+    <string name="Dodaj">Dodaj</string>
+    <string name="of_2">Dostępne oferty:</string>
+    <string name="edit">Edytuj</string>
+</resources>
