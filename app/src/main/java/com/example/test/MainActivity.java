@@ -35,18 +35,18 @@ public class MainActivity extends AppCompatActivity {
 
     public void onClickSave(View view)
     {
-        String id = mDataBase.getKey();
         String name = edName.getText().toString();
         String web = edWed.getText().toString();
         String des = edDes.getText().toString();
         String more = edMore.getText().toString();
 
-        Offer newOffer = new Offer(id,name,web,des,more);
         //mDataBase.push().setValue(newOffer);
 
         if(!(TextUtils.isEmpty(name) && TextUtils.isEmpty(web) && TextUtils.isEmpty(des) && TextUtils.isEmpty(more)))
         {
-            mDataBase.push().setValue(newOffer);
+            DatabaseReference newOfferRef = mDataBase.push();
+            Offer newOffer = new Offer(newOfferRef.getKey(),name,web,des,more);
+            mDataBase.setValue(newOffer);
             Toast.makeText(this,"Oferta dodana!", Toast.LENGTH_SHORT).show();
             Intent i = new Intent(MainActivity.this, ReadActivity.class);
             startActivity(i);

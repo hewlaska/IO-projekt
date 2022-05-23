@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/editName"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/green_1">
 
     <EditText
         android:id="@+id/editname"
@@ -63,7 +64,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="60dp"
         android:onClick="onClickEd"
-        android:text="Edit"
+        android:text="@string/edit"
+        android:background="@drawable/btn_bg"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editMore" />

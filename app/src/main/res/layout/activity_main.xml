@@ -76,6 +76,7 @@
         android:onClick="onClickSave"
         android:text="@string/Dodaj"
         android:textColor="#212121"
+        android:background="@drawable/btn_bg"
         app:layout_constraintEnd_toEndOf="@+id/edMore"
         app:layout_constraintStart_toStartOf="@+id/edMore"
         app:layout_constraintTop_toBottomOf="@+id/edMore" />

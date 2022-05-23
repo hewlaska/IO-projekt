@@ -25,8 +25,8 @@ public class ReadActivity extends AppCompatActivity {
     private ArrayAdapter<String> adapter;
     private List<String> listData;
     private List<Offer> listTemp;
+    private List<String> listKey;
     private DatabaseReference mDataBase;
-    String KEY = "Offer";
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -41,9 +41,10 @@ public class ReadActivity extends AppCompatActivity {
         listView = findViewById(R.id.listView);
         listData = new ArrayList<>();
         listTemp = new ArrayList<>();
+        listKey = new ArrayList<>();
         adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, listData);
         listView.setAdapter(adapter);
-        mDataBase = FirebaseDatabase.getInstance().getReference(KEY);
+        mDataBase = FirebaseDatabase.getInstance().getReference(Constant.KEY);
     }
 
     private void getDataFromDB()
@@ -54,12 +55,15 @@ public class ReadActivity extends AppCompatActivity {
             {
                 if(listData.size() > 0) listData.clear();
                 if(listTemp.size() > 0) listTemp.clear();
+                if(listKey.size() > 0) listData.clear();
                 for(DataSnapshot ds: snapshot.getChildren())
                 {
                     Offer offer = ds.getValue(Offer.class);
                     assert offer != null;
+                    String key = ds.getKey();
                     listData.add(offer.name);
                     listTemp.add(offer);
+                    listKey.add(key);
                 }
                 adapter.notifyDataSetChanged();
             }
@@ -78,7 +82,9 @@ public class ReadActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int in, long l) {
                 Offer offer = listTemp.get(in);
+                String key = listKey.get(in);
                 Intent i = new Intent(ReadActivity.this, ShowActivity.class);
+                i.putExtra(Constant.OFFER_KEY,key);
                 i.putExtra(Constant.OFFER_NAME,offer.name);
                 i.putExtra(Constant.OFFER_WEB,offer.web);
                 i.putExtra(Constant.OFFER_DES,offer.des);
