@@ -59,14 +59,15 @@
         app:layout_constraintTop_toBottomOf="@+id/editDes" />
 
     <Button
-        android:id="@+id/button4"
+        android:id="@+id/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="60dp"
-        android:onClick="onClickEd"
-        android:text="@string/edit"
-        android:background="@drawable/btn_bg"
+        android:layout_marginTop="68dp"
+        android:onClick="onClickEdit"
+        android:text="Button"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.538"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editMore" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

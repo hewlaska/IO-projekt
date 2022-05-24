@@ -15,7 +15,6 @@ import com.google.firebase.database.FirebaseDatabase;
 public class MainActivity extends AppCompatActivity {
     private EditText edName, edWed, edDes, edMore;
     private DatabaseReference mDataBase;
-    String KEY = "Offer";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,23 +29,22 @@ public class MainActivity extends AppCompatActivity {
         edWed = findViewById(R.id.edWeb);
         edDes = findViewById(R.id.edDes);
         edMore = findViewById(R.id.edMore);
-        mDataBase = FirebaseDatabase.getInstance().getReference(KEY);
+        mDataBase = FirebaseDatabase.getInstance().getReference(Constant.OFFER_KEY);
     }
 
     public void onClickSave(View view)
     {
+        DatabaseReference newOfferRef = mDataBase.push();
+        String id = newOfferRef.getKey();
         String name = edName.getText().toString();
         String web = edWed.getText().toString();
         String des = edDes.getText().toString();
         String more = edMore.getText().toString();
 
-        //mDataBase.push().setValue(newOffer);
-
         if(!(TextUtils.isEmpty(name) && TextUtils.isEmpty(web) && TextUtils.isEmpty(des) && TextUtils.isEmpty(more)))
         {
-            DatabaseReference newOfferRef = mDataBase.push();
-            Offer newOffer = new Offer(newOfferRef.getKey(),name,web,des,more);
-            mDataBase.setValue(newOffer);
+            Offer newOffer = new Offer(id,name,web,des,more);
+            mDataBase.push().setValue(newOffer);
             Toast.makeText(this,"Oferta dodana!", Toast.LENGTH_SHORT).show();
             Intent i = new Intent(MainActivity.this, ReadActivity.class);
             startActivity(i);

@@ -5,19 +5,17 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 
-import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-public class EditActivity extends AppCompatActivity{
-    private EditText editName, editWeb, editDes, editMore;
+public class EditActivity extends AppCompatActivity {
+    private EditText edName, edWed, edDes, edMore;
     private DatabaseReference mDataBase;
+    String id;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,37 +23,33 @@ public class EditActivity extends AppCompatActivity{
         init();
     }
 
-    private void init()
+    public void init()
     {
-        editName = findViewById(R.id.editname);
-        editWeb = findViewById(R.id.editWeb);
-        editDes = findViewById(R.id.editDes);
-        editMore = findViewById(R.id.editMore);
-        mDataBase = FirebaseDatabase.getInstance().getReference(Constant.KEY);
+        edName = findViewById(R.id.editname);
+        edWed = findViewById(R.id.editWeb);
+        edDes = findViewById(R.id.editDes);
+        edMore = findViewById(R.id.editMore);
+        mDataBase = FirebaseDatabase.getInstance().getReference(Constant.OFFER_KEY);
     }
 
-
-    private void onClickEd(View view)
+    public void onClickEdit (View view)
     {
         Intent i = getIntent();
         if(i != null)
         {
-            mDataBase.child(i.getStringExtra(Constant.KEY)).get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
-                @Override
-                public void onComplete(@NonNull Task<DataSnapshot> task) {
-                    task.getResult().getValue(Offer.class);
-                }
-            });
-            String name = editName.getText().toString();
-            String web = editWeb.getText().toString();
-            String des = editDes.getText().toString();
-            String more = editMore.getText().toString();
-            Offer newOffer = new Offer(i.getStringExtra(Constant.KEY),name,web,des,more);
-
-            mDataBase.child(i.getStringExtra(Constant.KEY)).setValue(newOffer);
+            id = i.getStringExtra(Constant.OFFER_ID);
         }
-        Intent I = new Intent(EditActivity.this, ShowActivity.class);
-        startActivity(I);
+        String name = edName.getText().toString();
+        String web = edWed.getText().toString();
+        String des = edDes.getText().toString();
+        String more = edMore.getText().toString();
 
+        mDataBase.child(Constant.OFFER_KEY).child(id).child("name").setValue(name);
+        mDataBase.child(Constant.OFFER_KEY).child(id).child("web").setValue(web);
+        mDataBase.child(Constant.OFFER_KEY).child(id).child("des").setValue(des);
+        mDataBase.child(Constant.OFFER_KEY).child(id).child("more").setValue(more);
+
+        Intent j = new Intent(EditActivity.this, ReadActivity.class);
+        startActivity(j);
     }
 }

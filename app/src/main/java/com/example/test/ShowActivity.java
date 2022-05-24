@@ -8,13 +8,9 @@ import android.widget.TextView;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-
 public class ShowActivity extends AppCompatActivity {
     private TextView tvName, tvWeb, tvDes, tvMore;
-    String key;
-    //private DatabaseReference mDataBase = FirebaseDatabase.getInstance().getReference(Constant.KEY);
+    String id;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,14 +36,14 @@ public class ShowActivity extends AppCompatActivity {
             tvWeb.setText(i.getStringExtra(Constant.OFFER_WEB));
             tvDes.setText(i.getStringExtra(Constant.OFFER_DES));
             tvMore.setText(i.getStringExtra(Constant.OFFER_MORE));
-            key = i.getStringExtra(Constant.KEY);
+            id = i.getStringExtra(Constant.OFFER_ID);
         }
     }
 
-    public void onClickEdit(View view)
+    public void onClickEd (View view)
     {
         Intent i = new Intent(ShowActivity.this, EditActivity.class);
-        i.putExtra(Constant.OFFER_KEY,key);
         startActivity(i);
     }
+
 }
