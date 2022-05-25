@@ -46,4 +46,10 @@ public class ShowActivity extends AppCompatActivity {
         startActivity(i);
     }
 
+    public void onClickShow(View view)
+    {
+        Intent i = new Intent(ShowActivity.this, ReadActivity.class);
+        startActivity(i);
+    }
+
 }
