@@ -2,72 +2,193 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/editName"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/green_1">
-
-    <EditText
-        android:id="@+id/editname"
-        android:layout_width="300dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="95dp"
-        android:ems="10"
-        android:hint="Name"
-        android:inputType="textPersonName"
-        android:scaleX="1"
-        android:scaleY="1"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <EditText
-        android:id="@+id/editWeb"
-        android:layout_width="300dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="25dp"
-        android:ems="10"
-        android:hint="Website"
-        android:inputType="textPersonName"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editname" />
-
-    <EditText
-        android:id="@+id/editDes"
-        android:layout_width="300dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="25dp"
-        android:ems="10"
-        android:hint="Descriptions"
-        android:inputType="textPersonName"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editWeb" />
-
-    <EditText
-        android:id="@+id/editMore"
-        android:layout_width="300dp"
-        android:layout_height="150dp"
-        android:layout_marginTop="25dp"
-        android:ems="10"
-        android:gravity="clip_horizontal"
-        android:hint="More information"
-        android:inputType="textPersonName"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editDes" />
+    android:background="@color/green_1"
+    tools:context=".EditActivity">
 
     <Button
         android:id="@+id/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="68dp"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/btn_bg"
         android:onClick="onClickEdit"
-        android:text="Button"
+        android:text="Zmień"
+        android:textColor="#212121"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.538"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editMore" />
 
+    <EditText
+        android:id="@+id/editMore"
+        android:layout_width="300dp"
+        android:layout_height="150dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="5dp"
+        android:background="@color/green_0"
+        android:ems="10"
+        android:fontFamily="@font/montaga"
+        android:gravity="clip_vertical"
+        android:hint="Podaj nową informację:"
+        android:inputType="textPersonName"
+        android:scaleX="1"
+        android:scaleY="1.1"
+        android:textSize="15dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView22" />
+
+    <TextView
+        android:id="@+id/textView88"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="98dp"
+        android:fontFamily="@font/montaga"
+        android:text="@string/work_1"
+        android:textColor="@color/work_1"
+        android:textSize="50dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView81"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="98dp"
+        android:fontFamily="@font/montaga"
+        android:text="@string/work_2"
+        android:textColor="@color/work_2"
+        android:textSize="50dp"
+        app:layout_constraintStart_toEndOf="@+id/textView88"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView7"
+        android:layout_width="100dp"
+        android:layout_height="126dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintBottom_toTopOf="@+id/textView19"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@drawable/ic_bamboo" />
+
+    <EditText
+        android:id="@+id/editName"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="50dp"
+        android:background="@color/green_0"
+        android:ems="10"
+        android:fontFamily="@font/montaga"
+        android:hint="Podaj nową nazwę:"
+        android:inputType="textPersonName"
+        android:scaleX="1"
+        android:scaleY="1.2"
+        android:textSize="15dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView19" />
+
+    <EditText
+        android:id="@+id/editWeb"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="50dp"
+        android:background="@color/green_0"
+        android:ems="10"
+        android:fontFamily="@font/montaga"
+        android:hint="Podaj nowy webdite:"
+        android:inputType="textPersonName"
+        android:scaleX="1"
+        android:scaleY="1.2"
+        android:textSize="15dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView20" />
+
+    <EditText
+        android:id="@+id/editDes"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="50dp"
+        android:background="@color/green_0"
+        android:ems="10"
+        android:fontFamily="@font/montaga"
+        android:hint="Podaj nowe oferty:"
+        android:inputType="textPersonName"
+        android:scaleX="1"
+        android:scaleY="1.2"
+        android:textSize="15dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView21" />
+
+    <TextView
+        android:id="@+id/textView19"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="175dp"
+        android:layout_marginEnd="5dp"
+        android:background="@color/niebieski"
+        android:fontFamily="@font/montaga"
+        android:gravity="center"
+        android:text="@string/name_pr"
+        android:textSize="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView20"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:background="@color/niebieski"
+        android:fontFamily="@font/montaga"
+        android:gravity="center"
+        android:text="@string/web"
+        android:textSize="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editName" />
+
+    <TextView
+        android:id="@+id/textView21"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginEnd="5dp"
+        android:background="@color/niebieski"
+        android:fontFamily="@font/montaga"
+        android:gravity="center"
+        android:text="@string/name_w"
+        android:textSize="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editWeb" />
+
+    <TextView
+        android:id="@+id/textView22"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:background="@color/niebieski"
+        android:fontFamily="@font/montaga"
+        android:gravity="center"
+        android:text="@string/more"
+        android:textSize="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editDes" />
+
+    <Button
+        android:id="@+id/button4"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/btn_bg"
+        android:onClick="onClickWroc2"
+        android:text="Wróć"
+        android:textColor="#212121"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

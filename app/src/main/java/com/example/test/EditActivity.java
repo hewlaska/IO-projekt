@@ -21,18 +21,31 @@ public class EditActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.edit_layout);
         init();
+        getInitentShow();
     }
 
     public void init()
     {
-        edName = findViewById(R.id.editname);
+        edName = findViewById(R.id.editName);
         edWed = findViewById(R.id.editWeb);
         edDes = findViewById(R.id.editDes);
         edMore = findViewById(R.id.editMore);
         mDataBase = FirebaseDatabase.getInstance().getReference(Constant.OFFER_KEY);
+
+    }
+    private void getInitentShow()
+    {
+        Intent i = getIntent();
+        if(i != null)
+        {
+            edName.setText(i.getStringExtra(Constant.OFFER_NAME));
+            edWed.setText(i.getStringExtra(Constant.OFFER_WEB));
+            edDes.setText(i.getStringExtra(Constant.OFFER_WEB));
+            edMore.setText(i.getStringExtra(Constant.OFFER_DES));
+        }
     }
 
-    public void onClickEdit (View view)
+    public void onClickEdit(View view)
     {
         Intent i = getIntent();
         if(i != null)
@@ -44,12 +57,19 @@ public class EditActivity extends AppCompatActivity {
         String des = edDes.getText().toString();
         String more = edMore.getText().toString();
 
-        mDataBase.child(Constant.OFFER_KEY).child(id).child("name").setValue(name);
-        mDataBase.child(Constant.OFFER_KEY).child(id).child("web").setValue(web);
-        mDataBase.child(Constant.OFFER_KEY).child(id).child("des").setValue(des);
-        mDataBase.child(Constant.OFFER_KEY).child(id).child("more").setValue(more);
+        mDataBase.child(id).child("name").setValue(name);
+        mDataBase.child(id).child("web").setValue(web);
+        mDataBase.child(id).child("des").setValue(des);
+        mDataBase.child(id).child("more").setValue(more);
 
-        Intent j = new Intent(EditActivity.this, ReadActivity.class);
+        Intent j = new Intent(EditActivity.this,ReadActivity.class);
         startActivity(j);
     }
+
+    public void onClickWroc2(View view)
+    {
+        Intent i = new Intent(EditActivity.this,ReadActivity.class);
+        startActivity(i);
+    }
+
 }

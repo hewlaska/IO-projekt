@@ -43,12 +43,13 @@ public class ShowActivity extends AppCompatActivity {
     public void onClickEd (View view)
     {
         Intent i = new Intent(ShowActivity.this, EditActivity.class);
+        i.putExtras(getIntent());
         startActivity(i);
     }
 
-    public void onClickShow(View view)
+    public void onClickWroc4()
     {
-        Intent i = new Intent(ShowActivity.this, ReadActivity.class);
+        Intent i = new Intent(ShowActivity.this,ReadActivity.class);
         startActivity(i);
     }
 

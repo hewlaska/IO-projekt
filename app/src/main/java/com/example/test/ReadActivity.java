@@ -89,9 +89,9 @@ public class ReadActivity extends AppCompatActivity {
         });
     }
 
-    public void onClickRead(View view)
+    public void onClickWroc3(View view)
     {
-        Intent i = new Intent(ReadActivity.this, MenuActivity.class);
+        Intent i = new Intent(ReadActivity.this,MenuActivity.class);
         startActivity(i);
     }
 }

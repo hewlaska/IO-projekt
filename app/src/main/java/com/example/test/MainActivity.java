@@ -44,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
         if(!(TextUtils.isEmpty(name) && TextUtils.isEmpty(web) && TextUtils.isEmpty(des) && TextUtils.isEmpty(more)))
         {
             Offer newOffer = new Offer(id,name,web,des,more);
-            mDataBase.push().setValue(newOffer);
+            newOfferRef.setValue(newOffer);
             Toast.makeText(this,"Oferta dodana!", Toast.LENGTH_SHORT).show();
             Intent i = new Intent(MainActivity.this, ReadActivity.class);
             startActivity(i);
@@ -54,6 +54,12 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(this,"Podaj wszystkie dane!", Toast.LENGTH_SHORT).show();
         }
 
+    }
+
+    public void onClickWroc1(View view)
+    {
+        Intent i = new Intent(MainActivity.this,MenuActivity.class);
+        startActivity(i);
     }
 
 }
