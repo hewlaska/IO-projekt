@@ -170,7 +170,7 @@
         android:layout_height="50dp"
         android:layout_marginStart="5dp"
         android:background="@drawable/btn_bg"
-        android:onClick="onClickWroc1"
+        android:onClick="onClickWroc4"
         android:text="Wróć"
         android:textColor="#212121"
         app:layout_constraintStart_toStartOf="parent"
